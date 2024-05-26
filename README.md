@@ -1,0 +1,5 @@
+Prime Number Generator MERN Stack Website This is a full-stack web application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It provides a user authentication system with login/signup functionality and a prime number generator feature.
+
+Features User Authentication: Users can sign up and log in securely. Prime Number Generation: Users can generate prime numbers by specifying the start and end range and selecting the method from a dropdown list. Database Storage: Generated prime numbers, along with relevant information such as length of prime numbers, start time, end time, time elapsed, and the method chosen, are stored in MongoDB.
+
+Usage: Sign Up: Create a new account with a unique email address. Log In: Log in to your account with your email and password. Prime Number Generator: Enter the start and end range for prime number generation. Select the method from the dropdown list (e.g., Sieve of Eratosthenes, Brute force and square root method). Click the "Generate" button. View Generated Prime Number.
