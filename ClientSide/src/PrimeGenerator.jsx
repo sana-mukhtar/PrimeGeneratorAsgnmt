@@ -1,57 +1,9 @@
 import { useState } from "react";
+import { bruteForce } from "./functions/bruteForce";
+import { PrimesSqrtMethod } from "./functions/primeSqrt";
+import { generatePrimesEratosthenes } from "./functions/seive";
 import axios from "axios";
 import "./index.css";
-
-function bruteForce(start, end) {
-  let primes = [];
-  for (let i = start; i <= end; i++) {
-    let count = 0;
-    for (let j = 2; j <= i / 2; j++) {
-      if (i % j === 0) {
-        count = count + 1;
-        break;
-      }
-    }
-    if (count === 0 && i > 1) {
-      primes.push(i);
-    }
-  }
-  return primes;
-}
-
-function PrimesSqrtMethod(start, end) {
-  const primes = [];
-  for (let i = start; i <= end; i++) {
-    let count = 0;
-    for (let j = 2; j <= Math.sqrt(i); j++) {
-      if (i % j === 0) {
-        count = count + 1;
-        break;
-      }
-    }
-    if (count === 0) {
-      primes.push(i);
-    }
-  }
-  return primes;
-}
-
-const generatePrimesEratosthenes = (start, end) => {
-  const sieve = new Array(end + 1).fill(true);
-  sieve[0] = sieve[1] = false; // 0 and 1 are not primes
-  for (let p = 2; p * p <= end; p++) {
-    if (sieve[p]) {
-      for (let i = p * p; i <= end; i += p) {
-        sieve[i] = false;
-      }
-    }
-  }
-  const primes = [];
-  for (let num = start; num <= end; num++) {
-    if (sieve[num]) primes.push(num);
-  }
-  return primes;
-};
 
 const PrimeGenerator = () => {
   const [start, setStart] = useState(2);
